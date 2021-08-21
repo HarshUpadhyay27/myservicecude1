@@ -9,6 +9,15 @@ const jwt = require('jsonwebtoken')
 
 app.use(express.json());
 
+app.get("/user", async (req, res)=>{
+  try {
+    const userData = await User.find()
+    res.send(userData)
+  } catch (error) {
+    res.send(e)
+  }
+})
+
 app.post("/user/signup", async (req, res) => {
   try {
     const { email, name } = req.body;
